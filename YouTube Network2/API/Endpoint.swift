@@ -23,13 +23,13 @@ enum Endpoint {
     }
     
     var url: String {
-        let appID = "AIzaSyCbVfMWTxgGIJBa6uncFakrHpeKReNmksg"
+        let appID = "AIzaSyBSMDI5OelSmiHZO7ZGGsKTR245uqxmeKM"
         let baseUrl = "https://www.googleapis.com/"
         switch self {
         case .getAPI:
             return baseUrl + "/youtube/v3/search?part=snippet&maxResults=25&q=surfing&type=video&key=\(appID)"
         case .postVideoToYouTube:
-            return baseUrl + "/upload/youtube/v3/videos?part=snippet"
+            return baseUrl + "/upload/youtube/v3/videos?part=snippet" //"/upload/youtube/v3/videos?part=id"
         }
     }
 }

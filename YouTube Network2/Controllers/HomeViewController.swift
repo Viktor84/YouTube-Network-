@@ -13,7 +13,6 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var label: UILabel!
     
-    
     @IBOutlet weak var listView: UIView!
     
     fileprivate var items: [JSONItems] = [] {
@@ -25,17 +24,12 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         APIService.sharedInstance.postVideoToYouTube()
-        
         //updateData()
     }
     
-    
-    
     private func updateData() {
         APIService.sharedInstance.getAPI(completion: { [weak self] result in
-            
             
             if let _result = result as? JSONResponse {
                 self?.items = _result.items

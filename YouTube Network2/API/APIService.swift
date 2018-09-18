@@ -5,8 +5,8 @@
 //  Created by Viktor Pechersky on 17.09.2018.
 //  Copyright © 2018 Viktor Pecherskyi. All rights reserved.
 //
+// BUNDLE_ID com.example.Viktor.YouTube-Network2
 
-import Foundation
 
 import Foundation
 import Alamofire
@@ -49,7 +49,7 @@ class APIService {
         }
     }
     
-    private let accessToken = "42432162847-tp6fdq24tfeiceib7msr4smnmr5e1prl.apps.googleusercontent.com"
+    private let accessToken = "667764541707-u1qs4quiupj3qj9oqkrvg9tr6i587j5v.apps.googleusercontent.com"
     // postVideoToYouTube(token: accessToken, callback: { success in
     //     if success { }
     // })
@@ -87,7 +87,7 @@ class APIService {
         
         
         Alamofire.upload(multipartFormData: { multipartFormData in
-            //          multipartFormData.append("{'snippet':{'title' : 'TITLE_TEXT', 'description': 'DESCRIPTION_TEXT'}}".data(using: .utf8, allowLossyConversion: false)!, withName: "snippet", mimeType: "application/json")
+           // multipartFormData.append("{'snippet':{'title' : 'TITLE_TEXT', 'description': 'DESCRIPTION_TEXT'}}".data(using: .utf8, allowLossyConversion: false)!, withName: "snippet", mimeType: "application/json")
             multipartFormData.append(vdata, withName: "video", fileName: "video.mp4", mimeType: "application/octet-stream")
         }, to: endpoint.url,
            headers: headers)
@@ -109,8 +109,5 @@ class APIService {
                 
             }
         }
-        
-        
     }
-    
 }

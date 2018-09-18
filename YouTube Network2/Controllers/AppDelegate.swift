@@ -11,7 +11,7 @@ import Google
 import GoogleSignIn
 import UIKit
 
-/*
+/*version google example
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
