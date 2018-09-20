@@ -6,6 +6,26 @@
 //  Copyright © 2018 Viktor Pecherskyi. All rights reserved.
 //
 
+
+
+
+import UIKit
+
+class MessageViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+       
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+}
+
+
+// example google
 /*
 import GoogleAPIClientForREST
 import GoogleSignIn
@@ -112,21 +132,5 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     }
 }
 */
-/*
-import UIKit
-
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
 
-}
-*/

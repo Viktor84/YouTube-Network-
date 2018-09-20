@@ -1,27 +1,19 @@
 //
-//  VideoViewController.swift
+//  SearchViewController.swift
 //  YouTube Network2
 //
-//  Created by Viktor Pechersky on 17.09.2018.
+//  Created by Viktor Pechersky on 19.09.2018.
 //  Copyright © 2018 Viktor Pecherskyi. All rights reserved.
 //
 
-// https://stackoverflow.com/questions/36190397/setting-snippet-data-for-youtube-upload-via-rest-api-using-swift download with title
-
-//https://stackoverflow.com/questions/36120525/upload-video-and-properties-to-youtube-with-swift-and-alamofire
-
-
-
 import UIKit
 
-class VideoViewController: UIViewController {
+class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-
-        // Do any additional setup after loading the view.
+      
+        //self.navigationItem.title = "SearchVC"
     }
 
     override func didReceiveMemoryWarning() {
