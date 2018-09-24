@@ -56,13 +56,13 @@ class APIService {
     func postVideoToYouTube(){
         let endpoint = Endpoint.postVideoToYouTube
         
-        let headers = ["Authorization": "Bearer ya29.GlsaBsLwv1t_oL62kkwyZNEwXtehDyn9iwlg-JuCidJxVV5hqq7vWZW1eLnLPxBgAuch0z_1VE9zNcbAzOrpMhfs2bMRpj5hkemYjSlUazDfGt9_j9569gYJpXOE"]
+        let headers = ["Authorization": "Bearer \(accessToken)"]
         
         let fileManager = FileManager.default
         let currentPath = fileManager.currentDirectoryPath
         print("Current path: \(currentPath)")
-        let path = "file:///Users/viktorpechersky/Desktop/video.mp4"
-        //"file:///Users/svitlanamoiseyenko/Downloads/YN/YN/YN/video.mp4" /Users/viktorpechersky/Desktop //currentPath + "video.mp4"
+        //let path = "file:///Users/viktorpechersky/Desktop/video.mp4"
+        let path = "file:///Users/svitlanamoiseyenko/Desktop/video.mp4"
         
         guard let url = URL(string: path) as? URL else {
             return

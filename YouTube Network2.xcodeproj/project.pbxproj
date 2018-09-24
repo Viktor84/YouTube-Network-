@@ -19,6 +19,7 @@
 		DD3F7437214FF15100008C4C /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3F7436214FF15100008C4C /* Endpoint.swift */; };
 		DD3F743C214FF41800008C4C /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3F743B214FF41800008C4C /* VideoViewController.swift */; };
 		DD3F743E214FF4C300008C4C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3F743D214FF4C300008C4C /* HomeViewController.swift */; };
+		DD92F7C221551FA90009D614 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92F7C121551FA90009D614 /* DetailViewController.swift */; };
 		DDC51F422152759800C94759 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC51F412152759800C94759 /* SearchViewController.swift */; };
 		DDC51F4421529FEC00C94759 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC51F4321529FEC00C94759 /* MenuCollectionViewCell.swift */; };
 		DDC51F462152AD6500C94759 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC51F452152AD6500C94759 /* Menu.swift */; };
@@ -42,6 +43,7 @@
 		DD3F7436214FF15100008C4C /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		DD3F743B214FF41800008C4C /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		DD3F743D214FF4C300008C4C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		DD92F7C121551FA90009D614 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		DDC51F412152759800C94759 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DDC51F4321529FEC00C94759 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		DDC51F452152AD6500C94759 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			children = (
 				DD3F741B214FD86F00008C4C /* AppDelegate.swift */,
 				DD3F743D214FF4C300008C4C /* HomeViewController.swift */,
+				DD92F7C121551FA90009D614 /* DetailViewController.swift */,
 				DDC51F412152759800C94759 /* SearchViewController.swift */,
 				DD3F743B214FF41800008C4C /* VideoViewController.swift */,
 				DD3F741D214FD86F00008C4C /* MessageViewController.swift */,
@@ -307,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD92F7C221551FA90009D614 /* DetailViewController.swift in Sources */,
 				DD3F7432214FEE3600008C4C /* JSONRespone.swift in Sources */,
 				DD3F741E214FD86F00008C4C /* MessageViewController.swift in Sources */,
 				DDC51F4421529FEC00C94759 /* MenuCollectionViewCell.swift in Sources */,

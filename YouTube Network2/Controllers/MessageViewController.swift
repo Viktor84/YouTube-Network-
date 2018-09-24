@@ -9,30 +9,35 @@
 
 
 
-import UIKit
+//import UIKit
 
-class MessageViewController: UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-       
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
-}
+//class MessageViewController: UIViewController {
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//    }
+//
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//    }
+//
+//}
 
 
 // example google
-/*
+import Google
 import GoogleAPIClientForREST
 import GoogleSignIn
 import UIKit
 
-class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
+class MessageViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     
+    
+    
+    @IBAction func upload(_ sender: Any) {
+        uploadVideo()
+    }
     
     // If modifying these scopes, delete your previously saved credentials by
     // resetting the iOS simulator or uninstall the app.
@@ -45,22 +50,30 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+
+        
         // Configure Google Sign-in.
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().scopes = scopes
-        GIDSignIn.sharedInstance().signInSilently()
+        //GIDSignIn.sharedInstance().scopes = scopes
+ 
+        GIDSignIn.sharedInstance().scopes = [kGTLRAuthScopeYouTube, kGTLRAuthScopeYouTubeUpload]
+        GIDSignIn.sharedInstance().shouldFetchBasicProfile = true
+         //       GIDSignIn.sharedInstance().signIn()
         
+        GIDSignIn.sharedInstance().signInSilently()
+
         // Add the sign-in button.
         view.addSubview(signInButton)
-        
+
         // Add a UITextView to display output.
-        output.frame = view.bounds
-        output.isEditable = false
-        output.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
-        output.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        output.isHidden = true
-        view.addSubview(output);
+//        output.frame = view.bounds
+//        output.isEditable = false
+//        output.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
+//        output.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+//        output.isHidden = true
+//        view.addSubview(output);
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
@@ -100,6 +113,7 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
             return
         }
         
+        print("google response: ", response)
         var outputText = ""
         if let channels = response.items, !channels.isEmpty {
             let channel = response.items![0]
@@ -111,6 +125,63 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
             outputText += "view count: \(viewCount!)\n"
         }
         output.text = outputText
+    }
+    
+    func uploadVideo() {
+        var configureError: NSError?
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        assert(configureError == nil, "Error configuring Google services: \(configureError)")
+        
+//        GIDSignIn.sharedInstance().delegate = self
+//        GIDSignIn.sharedInstance().uiDelegate = self
+//        GIDSignIn.sharedInstance().scopes = [kGTLRAuthScopeYouTube, kGTLRAuthScopeYouTubeUpload]
+//        GIDSignIn.sharedInstance().shouldFetchBasicProfile = true
+//        GIDSignIn.sharedInstance().signIn()
+//
+       service.authorizer = GIDSignIn.sharedInstance().currentUser.authentication.fetcherAuthorizer()
+        
+        let status = GTLRYouTube_VideoStatus()
+        status.privacyStatus = kGTLRYouTube_VideoStatus_PrivacyStatus_Public
+        
+        let snippet = GTLRYouTube_VideoSnippet()
+        snippet.title = "ZX2384"
+        snippet.descriptionProperty = "TestUpload"
+        snippet.tags = "test,video,upload".components(separatedBy: ",")
+        
+        let youtubeVideo = GTLRYouTube_Video()
+        youtubeVideo.snippet = snippet
+        youtubeVideo.status = status
+        
+        
+        let fileManager = FileManager.default
+        let currentPath = fileManager.currentDirectoryPath
+        print("Current path: \(currentPath)")
+        //let path = "file:///Users/viktorpechersky/Desktop/video.mp4"
+        let path = "file:///Users/svitlanamoiseyenko/Desktop/video.mp4"
+        
+        guard let url = URL(string: path) as? URL else {
+            return
+        }
+//        guard let videodata = NSData(contentsOf: url as URL) as? NSData else {
+//            return
+//        }
+//        guard let vdata = Data(referencing: videodata) as? Data else {
+//            return
+//        }
+//        
+        let uploadParams = GTLRUploadParameters(fileURL: url, mimeType: "video/mp4")
+        
+        let uploadQuery = GTLRYouTubeQuery_VideosInsert.query(withObject: youtubeVideo, part: "snippet,status", uploadParameters: uploadParams)
+        
+        uploadQuery.executionParameters.uploadProgressBlock = {(progressTicket, totalBytesUploaded, totalBytesExpectedToUpload) in
+            print("Uploaded", totalBytesUploaded)
+        }
+        
+        service.executeQuery(uploadQuery) { (ticket, obj, error) in
+            print("ticket: ",ticket)
+            print("obj: ",obj)
+            print("error: ",error)
+        }
     }
     
     
@@ -131,6 +202,6 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
         present(alert, animated: true, completion: nil)
     }
 }
-*/
+
 
 

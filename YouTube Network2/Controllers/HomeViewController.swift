@@ -34,7 +34,6 @@ class HomeViewController: UIViewController {
     }()
 
     @IBOutlet weak var label: UILabel!
-    
     @IBOutlet weak var listView: UIView!
     
     fileprivate var items: [JSONItems] = [] {
@@ -46,11 +45,34 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        APIService.sharedInstance.postVideoToYouTube()
+        initNavigation()
+        
+        //APIService.sharedInstance.postVideoToYouTube()
         //updateData()
-        //var tabBarItem = UITabBarItem()
-        //tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
-        //tabBarItem.image = #imageLiteral(resourceName: "HomeIcon")
+        //collectionView.dataSource = self
+        //collectionView.delegate = self
+        //setupNavigationBar() // <--
+    }
+    
+    func initNavigation() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+    }
+    
+//    func setupNavigationBar() {
+//        navigationController?.navigationBar.prefersLargeTitles = true
+//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showVideo" {
+            if let vc = segue.destination as? DetailViewController {
+                let menu = sender as? Menu 
+                print(menu ?? "nil")
+                vc.menu = menu
+            }
+        }
     }
     
     private func updateData() {
@@ -69,6 +91,8 @@ class HomeViewController: UIViewController {
     }
 }
 
+
+
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itemMenuArray.count
@@ -79,9 +103,24 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
             itemCell.menu = itemMenuArray[indexPath.row]
             
+//            let view = UIView(frame: itemCell.bounds)
+//            view.backgroundColor = UIColor.red
+//            itemCell.selectedBackgroundView = view
+            
             return itemCell
         }
+        
+        
+        
         return UICollectionViewCell()
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let menu = itemMenuArray[indexPath.row]
+        
+       // menu.contentView.backgroundColor = UIColor.cyan
+
+        self.performSegue(withIdentifier: "showVideo", sender: menu)
+    } 
 }
 
