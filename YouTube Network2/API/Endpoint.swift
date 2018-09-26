@@ -11,14 +11,14 @@ import Alamofire
 
 enum Endpoint {
     case getAPI
-    case postVideoToYouTube
+    //case postVideoToYouTube
     
     var method: HTTPMethod {
         switch self {
         case .getAPI:
             return .get
-        case .postVideoToYouTube:
-            return .post
+        //case .postVideoToYouTube:
+           // return .post
         }
     }
     
@@ -28,8 +28,8 @@ enum Endpoint {
         switch self {
         case .getAPI:
             return baseUrl + "/youtube/v3/search?part=snippet&maxResults=25&q=surfing&type=video&key=\(appID)"
-        case .postVideoToYouTube:
-            return baseUrl + "/upload/youtube/v3/videos?part=snippet" //"/upload/youtube/v3/videos?part=id"
+        //case .postVideoToYouTube:
+          //  return baseUrl + "/upload/youtube/v3/videos?part=snippet" //"/upload/youtube/v3/videos?part=id"
         }
     }
 }

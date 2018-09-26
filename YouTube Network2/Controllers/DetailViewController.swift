@@ -22,7 +22,7 @@ class DetailViewController: UIViewController {
         }
     }
     
-    var menu: Menu?
+    var menu: Video?
     
     override func viewDidLoad() {
         super.viewDidLoad()

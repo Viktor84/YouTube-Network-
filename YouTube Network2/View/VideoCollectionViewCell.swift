@@ -1,5 +1,5 @@
 //
-//  MenuCollectionViewCell.swift
+//  VideoCollectionViewCell.swift
 //  YouTube Network2
 //
 //  Created by Viktor Pechersky on 19.09.2018.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-class MenuCollectionViewCell: UICollectionViewCell {
+class VideoCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
-    var menu: Menu? {
+    var menu: Video? {
         didSet {
             nameLabel.text = menu?.name
             if let image = menu?.imageName {

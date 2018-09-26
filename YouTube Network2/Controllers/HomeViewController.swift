@@ -13,24 +13,24 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var itemMenuArray: [Menu] = {
-        var blankMenu = Menu()
-        blankMenu.name = "Cities"
-        blankMenu.imageName = "cities"
+    var itemVideoArray: [Video] = {
+        var blankVideo = Video()
+        blankVideo.name = "Cities"
+        blankVideo.imageName = "cities"
         
-        var blankMenu1 = Menu()
-        blankMenu1.name = "Ideas"
-        blankMenu1.imageName = "ideas"
+        var blankVideo1 = Video()
+        blankVideo1.name = "Ideas"
+        blankVideo1.imageName = "ideas"
         
-        var blankMenu2 = Menu()
-        blankMenu2.name = "Ideas2"
-        blankMenu2.imageName = "ideas2"
+        var blankVideo2 = Video()
+        blankVideo2.name = "Ideas2"
+        blankVideo2.imageName = "ideas2"
         
-        var blankMenu3 = Menu()
-        blankMenu3.name = "Goals"
-        blankMenu3.imageName = "goals"
+        var blankVideo3 = Video()
+        blankVideo3.name = "Goals"
+        blankVideo3.imageName = "goals"
         
-        return [blankMenu, blankMenu1, blankMenu2, blankMenu3]
+        return [blankVideo, blankVideo1, blankVideo2, blankVideo3]
     }()
 
     @IBOutlet weak var label: UILabel!
@@ -46,12 +46,9 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         initNavigation()
-        
-        //APIService.sharedInstance.postVideoToYouTube()
         //updateData()
         //collectionView.dataSource = self
         //collectionView.delegate = self
-        //setupNavigationBar() // <--
     }
     
     func initNavigation() {
@@ -68,7 +65,7 @@ class HomeViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showVideo" {
             if let vc = segue.destination as? DetailViewController {
-                let menu = sender as? Menu 
+                let menu = sender as? Video
                 print(menu ?? "nil")
                 vc.menu = menu
             }
@@ -95,13 +92,13 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return itemMenuArray.count
+        return itemVideoArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let itemCell = collectionView.dequeueReusableCell(withReuseIdentifier: "menuCell", for: indexPath) as? MenuCollectionViewCell {
+        if let itemCell = collectionView.dequeueReusableCell(withReuseIdentifier: "menuCell", for: indexPath) as? VideoCollectionViewCell {
             
-            itemCell.menu = itemMenuArray[indexPath.row]
+            itemCell.menu = itemVideoArray[indexPath.row]
             
 //            let view = UIView(frame: itemCell.bounds)
 //            view.backgroundColor = UIColor.red
@@ -116,9 +113,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let menu = itemMenuArray[indexPath.row]
+        let menu = itemVideoArray[indexPath.row]
         
-       // menu.contentView.backgroundColor = UIColor.cyan
+       // menu.contentView.backgroundColor = UIColor.cyan // 
 
         self.performSegue(withIdentifier: "showVideo", sender: menu)
     } 
