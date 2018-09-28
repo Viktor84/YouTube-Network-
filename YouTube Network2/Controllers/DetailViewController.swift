@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//import youtube_ios_player_helper
 
 class DetailViewController: UIViewController {
 
@@ -23,6 +24,8 @@ class DetailViewController: UIViewController {
     }
     
     var menu: Video?
+    
+    var displayVideoButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()

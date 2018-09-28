@@ -58,10 +58,6 @@ class HomeViewController: UIViewController {
         self.navigationController?.view.backgroundColor = .clear
     }
     
-//    func setupNavigationBar() {
-//        navigationController?.navigationBar.prefersLargeTitles = true
-//    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showVideo" {
             if let vc = segue.destination as? DetailViewController {
@@ -89,7 +85,6 @@ class HomeViewController: UIViewController {
 }
 
 
-
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itemVideoArray.count
@@ -107,15 +102,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return itemCell
         }
         
-        
-        
         return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let menu = itemVideoArray[indexPath.row]
         
-       // menu.contentView.backgroundColor = UIColor.cyan // 
+       // menu.contentView.backgroundColor = UIColor.cyan 
 
         self.performSegue(withIdentifier: "showVideo", sender: menu)
     } 

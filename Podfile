@@ -5,4 +5,5 @@ target 'YouTube Network2' do
     pod 'Google/SignIn', '~> 3.0.3'
     pod 'Alamofire', '~> 4.7'
     pod 'PromiseKit'
+    pod 'youtube-ios-player-helper', '~> 0.1.4'
 end

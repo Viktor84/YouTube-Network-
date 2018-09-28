@@ -26,8 +26,7 @@ class UploadVideoViewController: UIViewController, GIDSignInDelegate, GIDSignInU
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
+    
         // Configure Google Sign-in.
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
@@ -63,7 +62,6 @@ class UploadVideoViewController: UIViewController, GIDSignInDelegate, GIDSignInU
             fetchChannelResource()
         }
     }
-    
     
     // List up to 10 files in Drive
     func fetchChannelResource() {
