@@ -11,4 +11,5 @@ import Foundation
 struct Video {
     var name: String?
     var imageName: String?
+    var videoGroup: String?
 }

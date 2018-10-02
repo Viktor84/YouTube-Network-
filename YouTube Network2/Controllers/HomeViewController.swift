@@ -17,18 +17,22 @@ class HomeViewController: UIViewController {
         var blankVideo = Video()
         blankVideo.name = "Cities"
         blankVideo.imageName = "cities"
+        blankVideo.videoGroup = "49LdKKGDDGU"
         
         var blankVideo1 = Video()
         blankVideo1.name = "Ideas"
         blankVideo1.imageName = "ideas"
+        blankVideo1.videoGroup = "c6yOxWf3A6g"
         
         var blankVideo2 = Video()
         blankVideo2.name = "Ideas2"
         blankVideo2.imageName = "ideas2"
+        blankVideo2.videoGroup = "6q3VKX_b1v8"
         
         var blankVideo3 = Video()
         blankVideo3.name = "Goals"
         blankVideo3.imageName = "goals"
+        blankVideo3.videoGroup = "QJNsP1o1Fj8"
         
         return [blankVideo, blankVideo1, blankVideo2, blankVideo3]
     }()
@@ -93,7 +97,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let itemCell = collectionView.dequeueReusableCell(withReuseIdentifier: "menuCell", for: indexPath) as? VideoCollectionViewCell {
             
-            itemCell.menu = itemVideoArray[indexPath.row]
+            itemCell.videoCollectionViewCell = itemVideoArray[indexPath.row]
             
 //            let view = UIView(frame: itemCell.bounds)
 //            view.backgroundColor = UIColor.red
@@ -101,7 +105,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
             return itemCell
         }
-        
         return UICollectionViewCell()
     }
     

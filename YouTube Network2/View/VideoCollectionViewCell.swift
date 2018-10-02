@@ -13,10 +13,14 @@ class VideoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
-    var menu: Video? {
+    @IBOutlet weak var labelVideoGroup: UILabel!
+    
+    var videoCollectionViewCell: Video? {
         didSet {
-            nameLabel.text = menu?.name
-            if let image = menu?.imageName {
+            nameLabel.text = videoCollectionViewCell?.name
+            labelVideoGroup.text = videoCollectionViewCell?.videoGroup
+            
+            if let image = videoCollectionViewCell?.imageName {
                 imageView.image = UIImage(named: image)
             }
         }

@@ -12,12 +12,13 @@ class VideoViewController: UIViewController {
 
     @IBOutlet var youtubePlayer: YTPlayerView!
     
+    let videoGroup = "QJNsP1o1Fj8"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        youtubePlayer.load(withVideoId: "6q3VKX_b1v8")
-        //youtubePlayer.load(withVideoId: "QJNsP1o1Fj8")
+        //youtubePlayer.load(withVideoId: "6q3VKX_b1v8")
+        //youtubePlayer.load(withVideoId: videoGroup)
         self.title = "YouTubeVC"
     }
 }

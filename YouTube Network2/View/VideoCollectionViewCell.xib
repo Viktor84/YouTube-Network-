@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoCellID" id="xOH-k3-yqc" customClass="VideoCollectionViewCell" customModule="YouTube_Network2" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="125" height="112"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="125" height="112"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsS-Iw-b0N">
+                        <rect key="frame" x="0.0" y="0.0" width="125" height="112"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RDX-M5-ozL">
+                                <rect key="frame" x="0.0" y="0.0" width="125" height="112"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="RDX-M5-ozL" firstAttribute="leading" secondItem="jsS-Iw-b0N" secondAttribute="leading" id="1bg-Pk-LOl"/>
+                            <constraint firstAttribute="bottom" secondItem="RDX-M5-ozL" secondAttribute="bottom" id="435-HF-Aly"/>
+                            <constraint firstAttribute="trailing" secondItem="RDX-M5-ozL" secondAttribute="trailing" id="GJg-Nl-lm7"/>
+                            <constraint firstItem="RDX-M5-ozL" firstAttribute="top" secondItem="jsS-Iw-b0N" secondAttribute="top" id="a6I-mZ-ezU"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="jsS-Iw-b0N" firstAttribute="top" secondItem="xOH-k3-yqc" secondAttribute="top" id="Xvj-j3-tQv"/>
+                <constraint firstAttribute="trailing" secondItem="jsS-Iw-b0N" secondAttribute="trailing" id="ZP6-cW-Atv"/>
+                <constraint firstItem="jsS-Iw-b0N" firstAttribute="leading" secondItem="xOH-k3-yqc" secondAttribute="leading" id="mLW-pS-OvZ"/>
+                <constraint firstAttribute="bottom" secondItem="jsS-Iw-b0N" secondAttribute="bottom" id="vmH-ZK-gYs"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="pOb-71-eac"/>
+            <size key="customSize" width="241" height="161"/>
+            <point key="canvasLocation" x="-162.40000000000001" y="-125.03748125937032"/>
+        </collectionViewCell>
+    </objects>
+</document>

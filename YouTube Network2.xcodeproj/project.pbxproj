@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2F36EDFEE9DC6A8ACD47AF85 /* Pods_YouTube_Network2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16C15274088A0754416C0936 /* Pods_YouTube_Network2.framework */; };
+		DD05894821627DEF008F2F42 /* YouTubeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD05894721627DEF008F2F42 /* YouTubeManager.swift */; };
 		DD3D2801215CFE810014AE49 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D2800215CFE810014AE49 /* VideoViewController.swift */; };
 		DD3F741C214FD86F00008C4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3F741B214FD86F00008C4C /* AppDelegate.swift */; };
 		DD3F741E214FD86F00008C4C /* UploadVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3F741D214FD86F00008C4C /* UploadVideoViewController.swift */; };
@@ -26,12 +27,14 @@
 		DDC51F462152AD6500C94759 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC51F452152AD6500C94759 /* Video.swift */; };
 		DDE4E672215E47C000B12BB1 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE4E670215E47C000B12BB1 /* YTPlayerView.m */; };
 		DDE4E674215E482800B12BB1 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = DDE4E673215E482800B12BB1 /* Assets */; };
+		DDEFFFAB2163D62B000DB4D9 /* VideoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDEFFFAA2163D62B000DB4D9 /* VideoCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0CFD4D99F87C2F3D531FD418 /* Pods-YouTube Network2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouTube Network2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YouTube Network2/Pods-YouTube Network2.debug.xcconfig"; sourceTree = "<group>"; };
 		16C15274088A0754416C0936 /* Pods_YouTube_Network2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YouTube_Network2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BEAFBDAC045BBCF851B0279 /* Pods-YouTube Network2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouTube Network2.release.xcconfig"; path = "Pods/Target Support Files/Pods-YouTube Network2/Pods-YouTube Network2.release.xcconfig"; sourceTree = "<group>"; };
+		DD05894721627DEF008F2F42 /* YouTubeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeManager.swift; sourceTree = "<group>"; };
 		DD3D2800215CFE810014AE49 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		DD3F7418214FD86F00008C4C /* YouTube Network2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YouTube Network2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3F741B214FD86F00008C4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +58,7 @@
 		DDE4E671215E47C000B12BB1 /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
 		DDE4E673215E482800B12BB1 /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
 		DDE4E675215E48F800B12BB1 /* YouTube Network2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YouTube Network2-Bridging-Header.h"; sourceTree = "<group>"; };
+		DDEFFFAA2163D62B000DB4D9 /* VideoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				DDC51F4321529FEC00C94759 /* VideoCollectionViewCell.swift */,
+				DDEFFFAA2163D62B000DB4D9 /* VideoCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 				DDC51F412152759800C94759 /* SearchViewController.swift */,
 				DD3F743B214FF41800008C4C /* MessageViewController.swift */,
 				DD3F741D214FD86F00008C4C /* UploadVideoViewController.swift */,
+				DD05894721627DEF008F2F42 /* YouTubeManager.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -243,6 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDEFFFAB2163D62B000DB4D9 /* VideoCollectionViewCell.xib in Resources */,
 				DDE4E674215E482800B12BB1 /* Assets in Resources */,
 				DD3F7426214FD87100008C4C /* LaunchScreen.storyboard in Resources */,
 				DD3F742E214FDEDA00008C4C /* GoogleService-Info.plist in Resources */,
@@ -330,6 +337,7 @@
 				DD3D2801215CFE810014AE49 /* VideoViewController.swift in Sources */,
 				DD92F7C221551FA90009D614 /* DetailViewController.swift in Sources */,
 				DD3F7432214FEE3600008C4C /* JSONRespone.swift in Sources */,
+				DD05894821627DEF008F2F42 /* YouTubeManager.swift in Sources */,
 				DD3F741E214FD86F00008C4C /* UploadVideoViewController.swift in Sources */,
 				DDC51F4421529FEC00C94759 /* VideoCollectionViewCell.swift in Sources */,
 				DDE4E672215E47C000B12BB1 /* YTPlayerView.m in Sources */,

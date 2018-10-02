@@ -5,8 +5,7 @@
 //  Created by Viktor Pechersky on 17.09.2018.
 //  Copyright © 2018 Viktor Pecherskyi. All rights reserved.
 //
-// BUNDLE_ID com.example.Viktor.YouTube-Network2
-
+//
 
 import Foundation
 import Alamofire
@@ -24,10 +23,6 @@ class APIService {
         configuration.httpShouldSetCookies = false
         manager = SessionManager(configuration: configuration)
     }
-    
-    //private let appID = "AIzaSyCbVfMWTxgGIJBa6uncFakrHpeKReNmksg"
-    //private let baseUrl = "https://www.googleapis.com/youtube"
-    //let url = baseUrl + "/v3/search?part=snippet&maxResults=25&q=surfing&type=video&key=\(appID)"
     
     func getAPI( completion: @escaping (_ result: JSONResponse?) -> Void) {
         let endpoint = Endpoint.getAPI
@@ -48,7 +43,4 @@ class APIService {
                 }
         }
     }
-    
-    private let accessToken = "667764541707-u1qs4quiupj3qj9oqkrvg9tr6i587j5v.apps.googleusercontent.com"
-   
 }
