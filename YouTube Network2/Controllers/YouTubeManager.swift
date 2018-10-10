@@ -40,18 +40,21 @@ class YouTubeManager: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
             self.signInButton.isHidden = true
             self.output.isHidden = false
             self.service.authorizer = user.authentication.fetcherAuthorizer()
-            fetchChannelResource()
+            
+            //YouTubeManager.fetchChannelResource()
+            //fetchChannelResource() // <-
         }
     }
     
-    func fetchChannelResource() {
-        let query = GTLRYouTubeQuery_ChannelsList.query(withPart: "snippet,statistics")
-        
-        query.identifier = "UC_x5XG1OV2P6uZZ5FSM9Ttw"
-        service.executeQuery(query,
-                             delegate: self,
-                             didFinish: #selector(displayResultWithTicket(ticket:finishedWithObject:error:)))
-    }
+//    func fetchChannelResource() {
+//        let query = GTLRYouTubeQuery_ChannelsList.query(withPart: "snippet,statistics")
+//
+//        query.identifier = "UC_x5XG1OV2P6uZZ5FSM9Ttw"
+//        service.executeQuery(query,
+//                             delegate: self,
+//                             didFinish: #selector(displayResultWithTicket(ticket:finishedWithObject:error:)))
+//    }
+
     
     @objc func displayResultWithTicket(
         ticket: GTLRServiceTicket,
