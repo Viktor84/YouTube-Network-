@@ -11,16 +11,33 @@ import Google
 import GoogleAPIClientForREST
 import GoogleSignIn
 
-class YouTubeFunction: YouTubeManager {
-    
-    private let service = GTLRYouTubeService()
+protocol YouTubeFunctionDelegate {
+    func doDisplayResultWithTicket(ticket: GTLRServiceTicket,
+                                   finishedWithObject response : GTLRYouTube_ChannelListResponse,
+                                   error : NSError?)
+}
 
-func fetchChannelResource() {
-    let query = GTLRYouTubeQuery_ChannelsList.query(withPart: "snippet,statistics")
+class YouTubeFunction {
     
-    query.identifier = "UC_x5XG1OV2P6uZZ5FSM9Ttw"
-    service.executeQuery(query,
-                         delegate: self,
-                         didFinish: #selector(displayResultWithTicket(ticket:finishedWithObject:error:)))
+    static let sharedInstance = YouTubeFunction()
+    private let service = GTLRYouTubeService()
+    var delegate: YouTubeFunctionDelegate?
+  
+    
+    private init() {}
+ 
+    func fetchChannelResource(vc: UploadVideoViewController) {
+        let query = GTLRYouTubeQuery_ChannelsList.query(withPart: "snippet,statistics")
+    
+        query.identifier = "UC_x5XG1OV2P6uZZ5FSM9Ttw"
+        service.executeQuery(query,
+                         delegate: vc,
+                         didFinish: #selector(YouTubeFunction.handleResult(ticket:finishedWithObject:error:)))
+    }
+    
+    @objc func handleResult(ticket: GTLRServiceTicket,
+                      finishedWithObject response : GTLRYouTube_ChannelListResponse,
+                      error : NSError?) {
+        delegate?.doDisplayResultWithTicket(ticket: ticket, finishedWithObject:response, error: error)
     }
 }

@@ -14,6 +14,7 @@ import UIKit
 class YouTubeManager: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     
     static let sharedInstance = YouTubeManager()
+    private let youTubeFunction = YouTubeFunction.sharedInstance
     
     private let scopes = [kGTLRAuthScopeYouTubeReadonly]
     private let service = GTLRYouTubeService()
@@ -29,6 +30,8 @@ class YouTubeManager: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().shouldFetchBasicProfile = true
         GIDSignIn.sharedInstance().signInSilently()
         view.addSubview(signInButton)
+        
+        //youTubeFunction.fetchChannelResource()
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
@@ -41,7 +44,8 @@ class YouTubeManager: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
             self.output.isHidden = false
             self.service.authorizer = user.authentication.fetcherAuthorizer()
             
-            //YouTubeManager.fetchChannelResource()
+            youTubeFunction.delegate = self
+            //youTubeFunction.fetchChannelResource()
             //fetchChannelResource() // <-
         }
     }
@@ -60,12 +64,12 @@ class YouTubeManager: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
         ticket: GTLRServiceTicket,
         finishedWithObject response : GTLRYouTube_ChannelListResponse,
         error : NSError?) {
-        
+
         if let error = error {
             showAlert(title: "Error", message: error.localizedDescription)
             return
         }
-        
+
         print("google response: ", response)
         var outputText = ""
         if let channels = response.items, !channels.isEmpty {
@@ -141,5 +145,15 @@ class YouTubeManager: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
         alert.addAction(ok)
         present(alert, animated: true, completion: nil)
     }
+}
+
+extension YouTubeManager: YouTubeFunctionDelegate {
+    func doDisplayResultWithTicket(ticket: GTLRServiceTicket, finishedWithObject response: GTLRYouTube_ChannelListResponse, error: NSError?) {
+        
+        displayResultWithTicket(ticket: ticket, finishedWithObject: response, error: error)
+        
+    }
+    
+    
 }
 

@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="IwI-WX-Z3x">
             <objects>
-                <viewController id="dDl-gu-eWJ" sceneMemberID="viewController">
+                <viewController id="dDl-gu-eWJ" customClass="LoginViewController" customModule="YouTube_Network2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W5b-6e-DUB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -188,10 +188,10 @@
             </objects>
             <point key="canvasLocation" x="133.59999999999999" y="136.28185907046478"/>
         </scene>
-        <!--View Controller-->
+        <!--SignUP View Controller-->
         <scene sceneID="gt7-Rj-W4p">
             <objects>
-                <viewController id="1NU-AJ-g1f" sceneMemberID="viewController">
+                <viewController id="1NU-AJ-g1f" customClass="SignUPViewController" customModule="YouTube_Network2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oIc-je-QvF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -274,12 +274,15 @@
                                                     <constraint firstAttribute="height" constant="1" id="duw-6x-cps"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fzd-yz-jwp">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fzd-yz-jwp">
                                                 <rect key="frame" x="142" y="206" width="98" height="41"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <state key="normal" title="SIGIN UP">
                                                     <color key="titleColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="signUpAction:" destination="1NU-AJ-g1f" eventType="touchUpInside" id="EgE-0G-4da"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NbB-NJ-VWz">
                                                 <rect key="frame" x="15" y="127" width="345" height="31"/>
@@ -288,22 +291,25 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YTF-9i-4hM" userLabel="Separator">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YTF-9i-4hM" userLabel="Separator">
                                                 <rect key="frame" x="0.0" y="171" width="375" height="1"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.1960784314" green="0.27058823529999998" blue="0.32156862749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.039215686270000001" green="0.16862745100000001" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstItem="YTF-9i-4hM" firstAttribute="top" secondItem="NbB-NJ-VWz" secondAttribute="bottom" constant="13" id="3LS-CJ-jHE"/>
                                             <constraint firstItem="acL-HF-ZTW" firstAttribute="leading" secondItem="FS9-e8-pWe" secondAttribute="leading" constant="15" id="5TG-BT-3Nw"/>
                                             <constraint firstAttribute="trailing" secondItem="3b4-3t-HBs" secondAttribute="trailing" id="90c-EQ-72c"/>
                                             <constraint firstItem="acL-HF-ZTW" firstAttribute="top" secondItem="HKW-NU-ZPb" secondAttribute="bottom" constant="20" id="CoK-uW-y1r"/>
                                             <constraint firstItem="8gA-6W-7xX" firstAttribute="top" secondItem="FS9-e8-pWe" secondAttribute="top" constant="54" id="FTA-Tk-2up"/>
                                             <constraint firstItem="HKW-NU-ZPb" firstAttribute="leading" secondItem="FS9-e8-pWe" secondAttribute="leading" constant="15" id="Hu0-t1-U6U"/>
+                                            <constraint firstItem="YTF-9i-4hM" firstAttribute="trailing" secondItem="3b4-3t-HBs" secondAttribute="trailing" id="JR7-6i-Mjk"/>
                                             <constraint firstItem="NbB-NJ-VWz" firstAttribute="leading" secondItem="FS9-e8-pWe" secondAttribute="leading" constant="15" id="PRW-vE-qSN"/>
                                             <constraint firstAttribute="trailing" secondItem="8gA-6W-7xX" secondAttribute="trailing" id="Qzu-7e-3dU"/>
                                             <constraint firstItem="3b4-3t-HBs" firstAttribute="top" secondItem="acL-HF-ZTW" secondAttribute="bottom" constant="10" id="X37-8w-lRp"/>
+                                            <constraint firstAttribute="bottom" secondItem="Fzd-yz-jwp" secondAttribute="bottom" constant="121" id="ZJg-Ec-NHt"/>
+                                            <constraint firstItem="YTF-9i-4hM" firstAttribute="centerX" secondItem="NbB-NJ-VWz" secondAttribute="centerX" id="gQY-Gg-dOT"/>
                                             <constraint firstItem="HKW-NU-ZPb" firstAttribute="top" secondItem="FS9-e8-pWe" secondAttribute="top" constant="15" id="ha8-tc-2AQ"/>
                                             <constraint firstAttribute="trailing" secondItem="NbB-NJ-VWz" secondAttribute="trailing" constant="15" id="iIO-hk-UJf"/>
                                             <constraint firstAttribute="trailing" secondItem="acL-HF-ZTW" secondAttribute="trailing" constant="15" id="k2X-SK-ZMm"/>
@@ -311,6 +317,7 @@
                                             <constraint firstItem="8gA-6W-7xX" firstAttribute="leading" secondItem="FS9-e8-pWe" secondAttribute="leading" constant="19" id="mHT-9s-wZ4"/>
                                             <constraint firstItem="3b4-3t-HBs" firstAttribute="leading" secondItem="FS9-e8-pWe" secondAttribute="leading" constant="19" id="mTc-PN-pPa"/>
                                             <constraint firstAttribute="trailing" secondItem="HKW-NU-ZPb" secondAttribute="trailing" constant="15" id="mZ2-eO-CM5"/>
+                                            <constraint firstItem="Fzd-yz-jwp" firstAttribute="top" secondItem="YTF-9i-4hM" secondAttribute="bottom" constant="34" id="vBa-ZA-g9K"/>
                                             <constraint firstItem="Fzd-yz-jwp" firstAttribute="leading" secondItem="FS9-e8-pWe" secondAttribute="leading" constant="142" id="xZL-ue-PU4"/>
                                         </constraints>
                                     </view>
@@ -338,6 +345,11 @@
                         <viewLayoutGuide key="safeArea" id="5YK-BX-pfJ"/>
                     </view>
                     <navigationItem key="navigationItem" id="ngs-L1-KgJ"/>
+                    <connections>
+                        <outlet property="email" destination="NbB-NJ-VWz" id="RFm-mO-Y0h"/>
+                        <outlet property="password" destination="acL-HF-ZTW" id="8WI-Tl-tPe"/>
+                        <outlet property="userName" destination="HKW-NU-ZPb" id="sUq-F9-o0I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sL7-qu-cbh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

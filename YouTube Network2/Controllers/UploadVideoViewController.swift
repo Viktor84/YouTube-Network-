@@ -11,16 +11,16 @@ import GoogleAPIClientForREST
 import GoogleSignIn
 import UIKit
 
-//class UploadVideoViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
-class UploadVideoViewController: UIViewController {
+class UploadVideoViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     
+    private let youTubeFunction = YouTubeFunction.sharedInstance
     let currentVideoUpload = YouTubeManager.sharedInstance
     
     @IBAction func upload(_ sender: Any) {
         currentVideoUpload.uploadVideo()
         //uploadVideo()
     }
-    /*
+   
     // If modifying these scopes, delete your previously saved credentials by
     // resetting the iOS simulator or uninstall the app.
     private let scopes = [kGTLRAuthScopeYouTubeReadonly]
@@ -63,22 +63,24 @@ class UploadVideoViewController: UIViewController {
             self.signInButton.isHidden = true
             self.output.isHidden = false
             self.service.authorizer = user.authentication.fetcherAuthorizer()
-            fetchChannelResource()
+            youTubeFunction.delegate = self
+            youTubeFunction.fetchChannelResource(vc: self)
+           //fetchChannelResource()
         }
     }
     
     // List up to 10 files in Drive
-    func fetchChannelResource() {
-        let query = GTLRYouTubeQuery_ChannelsList.query(withPart: "snippet,statistics")
-        query.identifier = "UC_x5XG1OV2P6uZZ5FSM9Ttw"
-        // To retrieve data for the current user's channel, comment out the previous
-        // line (query.identifier ...) and uncomment the next line (query.mine ...)
-        // query.mine = true
-        service.executeQuery(query,
-                             delegate: self,
-                             didFinish: #selector(displayResultWithTicket(ticket:finishedWithObject:error:)))
-    }
-    
+//    func fetchChannelResource() {
+//        let query = GTLRYouTubeQuery_ChannelsList.query(withPart: "snippet,statistics")
+//        query.identifier = "UC_x5XG1OV2P6uZZ5FSM9Ttw"
+//        // To retrieve data for the current user's channel, comment out the previous
+//        // line (query.identifier ...) and uncomment the next line (query.mine ...)
+//        // query.mine = true
+//        service.executeQuery(query,
+//                             delegate: self,
+//                             didFinish: #selector(displayResultWithTicket(ticket:finishedWithObject:error:)))
+//    }
+//
     // Process the response and display output
     @objc func displayResultWithTicket(
         ticket: GTLRServiceTicket,
@@ -176,8 +178,16 @@ class UploadVideoViewController: UIViewController {
         )
         alert.addAction(ok)
         present(alert, animated: true, completion: nil)
-    }*/
+    }
 }
 
-
+extension UploadVideoViewController: YouTubeFunctionDelegate {
+    func doDisplayResultWithTicket(ticket: GTLRServiceTicket, finishedWithObject response: GTLRYouTube_ChannelListResponse, error: NSError?) {
+        
+        displayResultWithTicket(ticket: ticket, finishedWithObject: response, error: error)
+        
+    }
+    
+    
+}
 

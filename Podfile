@@ -6,4 +6,6 @@ target 'YouTube Network2' do
     pod 'Alamofire', '~> 4.7'
     pod 'PromiseKit'
     pod 'youtube-ios-player-helper', '~> 0.1.4'
+    pod 'Firebase'
+    pod 'Firebase/Auth'
 end

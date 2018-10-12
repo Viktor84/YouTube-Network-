@@ -8,8 +8,11 @@
 
 import Foundation
 import UIKit
+import FirebaseCore
 
 class HomeViewController: UIViewController {
+    static let nibName = "VideoCollectionViewCell"
+    static let cellIdentifier = "VideoCellID"
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -37,8 +40,8 @@ class HomeViewController: UIViewController {
         return [blankVideo, blankVideo1, blankVideo2, blankVideo3]
     }()
 
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var listView: UIView!
+    //@IBOutlet weak var label: UILabel!
+    //@IBOutlet weak var listView: UIView!
     
     fileprivate var items: [JSONItems] = [] {
         didSet {
@@ -46,13 +49,26 @@ class HomeViewController: UIViewController {
         }
     }
     
+    private func initCollectionView() {
+        let nib = UINib(nibName: HomeViewController.nibName, bundle: nil)
+        
+        self.collectionView.register(UINib(nibName: "VideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "VideoCellID")
+       // collectionView.register(nib, forCellReuseIdentifier: HomeViewController.cellIdentifier)
+       // collectionView.backgroundView = UIView(frame: .zero)
+     //   collectionView.tableFooterView = UIView(frame: .zero)
+      //  collectionView.separatorStyle = .none
+        
+       // collectionView.estimatedRowHeight = 65.0
+       // collectionView.rowHeight = UITableViewAutomaticDimension
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Database.database().reference()
         initNavigation()
+        initCollectionView()
         //updateData()
-        //collectionView.dataSource = self
-        //collectionView.delegate = self
     }
     
     func initNavigation() {
@@ -88,14 +104,13 @@ class HomeViewController: UIViewController {
     }
 }
 
-
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource  {
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itemVideoArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let itemCell = collectionView.dequeueReusableCell(withReuseIdentifier: "menuCell", for: indexPath) as? VideoCollectionViewCell {
+        if let itemCell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCellID", for: indexPath) as? VideoCollectionViewCell {
             
             itemCell.videoCollectionViewCell = itemVideoArray[indexPath.row]
             
@@ -108,12 +123,29 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return UICollectionViewCell()
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+    {
+        let cellSize = CGSize(width: (collectionView.bounds.width - (3 * 10))/2, height: 120)
+        return cellSize
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
+    {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
+    {
+        let sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
+        return sectionInset
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let menu = itemVideoArray[indexPath.row]
         
        // menu.contentView.backgroundColor = UIColor.cyan 
 
         self.performSegue(withIdentifier: "showVideo", sender: menu)
-    } 
+    }
 }
 

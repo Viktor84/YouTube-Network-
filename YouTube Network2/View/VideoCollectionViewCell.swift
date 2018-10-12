@@ -12,16 +12,27 @@ class VideoCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var labelVideoGroup: UILabel!
+   // @IBOutlet weak var labelVideoGroup: UILabel!
     
     var videoCollectionViewCell: Video? {
         didSet {
-            nameLabel.text = videoCollectionViewCell?.name
-            labelVideoGroup.text = videoCollectionViewCell?.videoGroup
+            configureCell()
             
-            if let image = videoCollectionViewCell?.imageName {
-                imageView.image = UIImage(named: image)
-            }
         }
+    }
+    
+    func configureCell() {
+        nameLabel.text = videoCollectionViewCell?.name
+        // labelVideoGroup.text = videoCollectionViewCell?.videoGroup
+        
+        if let image = videoCollectionViewCell?.imageName {
+            imageView.image = UIImage(named: image)
+        }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        imageView.image = nil
     }
 }

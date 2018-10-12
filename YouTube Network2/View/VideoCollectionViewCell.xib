@@ -24,14 +24,27 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RDX-M5-ozL">
                                 <rect key="frame" x="0.0" y="0.0" width="125" height="112"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="112" id="Tek-KA-lvb"/>
+                                    <constraint firstAttribute="width" constant="125" id="i8j-3y-2K3"/>
+                                </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWD-Z6-jgw">
+                                <rect key="frame" x="8" y="83" width="109" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ZWD-Z6-jgw" firstAttribute="leading" secondItem="jsS-Iw-b0N" secondAttribute="leading" constant="8" id="01d-ZG-3BO"/>
                             <constraint firstItem="RDX-M5-ozL" firstAttribute="leading" secondItem="jsS-Iw-b0N" secondAttribute="leading" id="1bg-Pk-LOl"/>
                             <constraint firstAttribute="bottom" secondItem="RDX-M5-ozL" secondAttribute="bottom" id="435-HF-Aly"/>
                             <constraint firstAttribute="trailing" secondItem="RDX-M5-ozL" secondAttribute="trailing" id="GJg-Nl-lm7"/>
+                            <constraint firstAttribute="trailing" secondItem="ZWD-Z6-jgw" secondAttribute="trailing" constant="8" id="Unr-8F-Mvk"/>
                             <constraint firstItem="RDX-M5-ozL" firstAttribute="top" secondItem="jsS-Iw-b0N" secondAttribute="top" id="a6I-mZ-ezU"/>
+                            <constraint firstItem="ZWD-Z6-jgw" firstAttribute="top" secondItem="jsS-Iw-b0N" secondAttribute="top" constant="83" id="sbQ-hp-Rwl"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -44,6 +57,10 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="pOb-71-eac"/>
             <size key="customSize" width="241" height="161"/>
+            <connections>
+                <outlet property="imageView" destination="RDX-M5-ozL" id="1DD-Uq-UtP"/>
+                <outlet property="nameLabel" destination="ZWD-Z6-jgw" id="oiK-FP-NKN"/>
+            </connections>
             <point key="canvasLocation" x="-162.40000000000001" y="-125.03748125937032"/>
         </collectionViewCell>
     </objects>
