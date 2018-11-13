@@ -12,8 +12,7 @@ class VideoCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-   // @IBOutlet weak var labelVideoGroup: UILabel!
-    
+ 
     var videoCollectionViewCell: Video? {
         didSet {
             configureCell()
@@ -23,8 +22,6 @@ class VideoCollectionViewCell: UICollectionViewCell {
     
     func configureCell() {
         nameLabel.text = videoCollectionViewCell?.name
-        // labelVideoGroup.text = videoCollectionViewCell?.videoGroup
-        
         if let image = videoCollectionViewCell?.imageName {
             imageView.image = UIImage(named: image)
         }

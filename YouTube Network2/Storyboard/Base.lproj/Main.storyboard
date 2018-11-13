@@ -13,7 +13,7 @@
         <!--Videos-->
         <scene sceneID="WOn-tP-ovz">
             <objects>
-                <viewController id="VSs-xb-wpK" customClass="HomeViewController" customModule="YouTube_Network2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="VSs-xb-wpK" customClass="HomeViewController" customModule="YouTube_Network2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HsY-vL-6Zl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -77,19 +77,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ty7-Mu-UUi" userLabel="header">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="319"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="306"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Dz-Yw-Obl">
-                                                <rect key="frame" x="124.5" y="249" width="230.5" height="35"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="35" id="qSz-QQ-pdP"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qCD-iS-zYs">
-                                                <rect key="frame" x="0.0" y="78" width="375" height="100"/>
+                                                <rect key="frame" x="0.0" y="78" width="375" height="108"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="108" id="8vI-dw-2ka"/>
+                                                </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g0w-pO-22b" customClass="YTPlayerView">
                                                 <rect key="frame" x="0.0" y="-4" width="375" height="230"/>
@@ -99,40 +93,38 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msg-Y8-z3O">
-                                                <rect key="frame" x="23" y="257" width="52.5" height="27"/>
+                                                <rect key="frame" x="23" y="237" width="56.5" height="27"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="27" id="eKY-2G-iRf"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                <color key="textColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.039215686274509803" green="0.16862745098039217" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="1Dz-Yw-Obl" secondAttribute="trailing" constant="20" id="1Rc-ai-YNS"/>
-                                            <constraint firstItem="msg-Y8-z3O" firstAttribute="bottom" secondItem="1Dz-Yw-Obl" secondAttribute="bottom" id="4ZM-Q5-Agn"/>
                                             <constraint firstAttribute="trailing" secondItem="qCD-iS-zYs" secondAttribute="trailing" id="AcT-qq-VsP"/>
-                                            <constraint firstItem="1Dz-Yw-Obl" firstAttribute="top" secondItem="qCD-iS-zYs" secondAttribute="bottom" constant="71" id="As3-uo-oCk"/>
                                             <constraint firstItem="g0w-pO-22b" firstAttribute="trailing" secondItem="qCD-iS-zYs" secondAttribute="trailing" id="HYs-wD-4Z2"/>
+                                            <constraint firstItem="msg-Y8-z3O" firstAttribute="top" secondItem="qCD-iS-zYs" secondAttribute="bottom" constant="51" id="Hn2-Fi-VqE"/>
                                             <constraint firstItem="g0w-pO-22b" firstAttribute="leading" secondItem="qCD-iS-zYs" secondAttribute="leading" id="Mdb-2T-Jad"/>
                                             <constraint firstItem="g0w-pO-22b" firstAttribute="top" secondItem="Ty7-Mu-UUi" secondAttribute="top" constant="-4" id="N4C-ND-zut"/>
                                             <constraint firstItem="qCD-iS-zYs" firstAttribute="top" secondItem="Ty7-Mu-UUi" secondAttribute="top" constant="78" id="Nt6-9d-cgk"/>
-                                            <constraint firstItem="1Dz-Yw-Obl" firstAttribute="top" secondItem="g0w-pO-22b" secondAttribute="bottom" constant="23" id="Nzi-5P-kdF"/>
                                             <constraint firstItem="qCD-iS-zYs" firstAttribute="leading" secondItem="Ty7-Mu-UUi" secondAttribute="leading" id="Uy6-Od-0Gv"/>
                                             <constraint firstItem="msg-Y8-z3O" firstAttribute="leading" secondItem="Ty7-Mu-UUi" secondAttribute="leading" constant="23" id="cIx-gG-JwJ"/>
-                                            <constraint firstItem="1Dz-Yw-Obl" firstAttribute="leading" secondItem="msg-Y8-z3O" secondAttribute="trailing" constant="49" id="oIL-0V-P4P"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ywf-hq-Jh2" userLabel="content">
                                         <rect key="frame" x="0.0" y="285" width="375" height="209"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V5m-30-0ih">
-                                                <rect key="frame" x="0.0" y="30" width="375" height="210"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="306"/>
+                                                <color key="backgroundColor" red="0.039215686270000001" green="0.16862745100000001" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="210" id="GOS-cc-aka"/>
+                                                    <constraint firstAttribute="height" constant="306" id="GOS-cc-aka"/>
                                                 </constraints>
+                                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="sectionIndexTrackingBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" rowHeight="80" id="jSx-xW-S3r" customClass="CommentsCell" customModule="YouTube_Network2" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
@@ -156,8 +148,8 @@
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="20" id="3Gf-nD-791"/>
                                                                             </constraints>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                            <nil key="textColor"/>
+                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                                                            <color key="textColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Cool video" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Isf-la-QTp" userLabel="comment">
@@ -165,12 +157,12 @@
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="R6I-kC-iDm"/>
                                                                             </constraints>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                            <color key="textColor" red="0.9468161464" green="0.18312650690000001" blue="0.1476571569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                            <color key="textColor" red="0.50196078431372548" green="0.5607843137254902" blue="0.5725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
-                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="backgroundColor" red="0.039215686274509803" green="0.16862745098039217" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <constraints>
                                                                         <constraint firstItem="d7M-Tf-CQS" firstAttribute="top" secondItem="2EW-9H-D41" secondAttribute="top" constant="8" id="29f-Fa-pRy"/>
                                                                         <constraint firstAttribute="trailing" secondItem="Isf-la-QTp" secondAttribute="trailing" constant="10" id="2Ad-qO-N9o"/>
@@ -185,6 +177,7 @@
                                                                     </constraints>
                                                                 </view>
                                                             </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstItem="2EW-9H-D41" firstAttribute="top" secondItem="co0-6e-Ovu" secondAttribute="top" id="QW9-B6-vsu"/>
                                                                 <constraint firstAttribute="trailing" secondItem="2EW-9H-D41" secondAttribute="trailing" id="ht7-nG-3as"/>
@@ -192,6 +185,7 @@
                                                                 <constraint firstItem="2EW-9H-D41" firstAttribute="leading" secondItem="co0-6e-Ovu" secondAttribute="leading" id="sGZ-qj-8r9"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <connections>
                                                             <outlet property="commentLabel" destination="Isf-la-QTp" id="Y1T-ra-xTc"/>
                                                             <outlet property="imageUser" destination="Yxt-Fg-wpp" id="rCP-0D-QAh"/>
@@ -205,10 +199,10 @@
                                                 </connections>
                                             </tableView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.039215686270000001" green="0.16862745100000001" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="V5m-30-0ih" secondAttribute="trailing" id="B70-mI-i2R"/>
-                                            <constraint firstItem="V5m-30-0ih" firstAttribute="top" secondItem="ywf-hq-Jh2" secondAttribute="top" constant="30" id="aej-7S-KWc"/>
+                                            <constraint firstItem="V5m-30-0ih" firstAttribute="top" secondItem="ywf-hq-Jh2" secondAttribute="top" id="aej-7S-KWc"/>
                                             <constraint firstItem="V5m-30-0ih" firstAttribute="leading" secondItem="ywf-hq-Jh2" secondAttribute="leading" id="h2d-N5-zXt"/>
                                         </constraints>
                                     </view>
@@ -229,6 +223,7 @@
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="zAn-qi-3Lw" secondAttribute="bottom" id="0Po-OA-wxF"/>
                                     <constraint firstItem="ywf-hq-Jh2" firstAttribute="leading" secondItem="8aD-jC-ZhY" secondAttribute="leading" id="9if-Td-yam"/>
@@ -240,11 +235,11 @@
                                     <constraint firstItem="zAn-qi-3Lw" firstAttribute="leading" secondItem="8aD-jC-ZhY" secondAttribute="leading" id="geJ-7k-cXj"/>
                                     <constraint firstItem="Ty7-Mu-UUi" firstAttribute="leading" secondItem="ywf-hq-Jh2" secondAttribute="leading" id="r69-Hl-GZz"/>
                                     <constraint firstItem="Ty7-Mu-UUi" firstAttribute="top" secondItem="8aD-jC-ZhY" secondAttribute="top" id="rvD-zY-sDL"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ty7-Mu-UUi" secondAttribute="bottom" constant="235" id="znh-gy-sl0"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ty7-Mu-UUi" secondAttribute="bottom" constant="248" id="znh-gy-sl0"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.039215686274509803" green="0.16862745098039217" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.039215686270000001" green="0.16862745100000001" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="8aD-jC-ZhY" secondAttribute="trailing" id="5zG-nH-nNb"/>
                             <constraint firstItem="8aD-jC-ZhY" firstAttribute="leading" secondItem="R1a-dK-r5Z" secondAttribute="leading" id="7gK-oF-svT"/>
@@ -264,13 +259,12 @@
                         <outlet property="commentTableView" destination="V5m-30-0ih" id="pUL-qd-Eti"/>
                         <outlet property="imageView" destination="qCD-iS-zYs" id="Pyq-Ih-cKB"/>
                         <outlet property="nameLabel" destination="msg-Y8-z3O" id="zVP-8y-VdE"/>
-                        <outlet property="videoIdLabel" destination="1Dz-Yw-Obl" id="FHs-Fo-OaE"/>
                         <outlet property="youTubePlayer2Test" destination="g0w-pO-22b" id="F8l-sO-GHW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gCX-cx-ELI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1864.8" y="-1434.3328335832084"/>
+            <point key="canvasLocation" x="1812" y="-1441"/>
         </scene>
         <!--SearchVC-->
         <scene sceneID="BA7-i2-rln">
@@ -372,7 +366,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Ua8-ZJ-tQi">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jMv-P8-0te" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navigationHomeVC" automaticallyAdjustsScrollViewInsets="NO" id="jMv-P8-0te" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="HomeIcon" id="B5b-1G-7wV">
                         <color key="badgeColor" red="0.027450980390000001" green="0.22352941179999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
@@ -503,7 +497,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uFJ-ek-lgk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2605.5999999999999" y="-1434.3328335832084"/>
+            <point key="canvasLocation" x="2505" y="-1442"/>
         </scene>
     </scenes>
     <resources>
@@ -512,7 +506,7 @@
         <image name="MessageIco" width="19" height="21"/>
         <image name="SearchIcon" width="18" height="18"/>
         <image name="VideoIco" width="42" height="36"/>
-        <image name="image1" width="80" height="81"/>
+        <image name="image1" width="40" height="40"/>
         <image name="profailIco" width="18" height="21"/>
     </resources>
 </document>

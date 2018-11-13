@@ -30,8 +30,6 @@ class YouTubeManager: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().shouldFetchBasicProfile = true
         GIDSignIn.sharedInstance().signInSilently()
         view.addSubview(signInButton)
-        
-        //youTubeFunction.fetchChannelResource()
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
@@ -45,20 +43,8 @@ class YouTubeManager: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
             self.service.authorizer = user.authentication.fetcherAuthorizer()
             
             youTubeFunction.delegate = self
-            //youTubeFunction.fetchChannelResource()
-            //fetchChannelResource() // <-
         }
     }
-    
-//    func fetchChannelResource() {
-//        let query = GTLRYouTubeQuery_ChannelsList.query(withPart: "snippet,statistics")
-//
-//        query.identifier = "UC_x5XG1OV2P6uZZ5FSM9Ttw"
-//        service.executeQuery(query,
-//                             delegate: self,
-//                             didFinish: #selector(displayResultWithTicket(ticket:finishedWithObject:error:)))
-//    }
-
     
     @objc func displayResultWithTicket(
         ticket: GTLRServiceTicket,
@@ -96,7 +82,6 @@ class YouTubeManager: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
         status.privacyStatus = kGTLRYouTube_VideoStatus_PrivacyStatus_Public
         
         let snippet = GTLRYouTube_VideoSnippet()
-        //snippet.title = "ZX2384" 1 version
         snippet.title = "ZX23841"
         snippet.descriptionProperty = "TestUpload"
         snippet.tags = "test,video,upload".components(separatedBy: ",")
@@ -110,7 +95,6 @@ class YouTubeManager: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
         let currentPath = fileManager.currentDirectoryPath
         print("Current path: \(currentPath)")
         let path = "file:///Users/viktorpechersky/Desktop/videoTest.mp4"
-        //let path = "file:///Users/svitlanamoiseyenko/Desktop/video.mp4" 1 version
         
         guard let url = URL(string: path) as? URL else {
             return
@@ -151,9 +135,5 @@ extension YouTubeManager: YouTubeFunctionDelegate {
     func doDisplayResultWithTicket(ticket: GTLRServiceTicket, finishedWithObject response: GTLRYouTube_ChannelListResponse, error: NSError?) {
         
         displayResultWithTicket(ticket: ticket, finishedWithObject: response, error: error)
-        
     }
-    
-    
 }
-

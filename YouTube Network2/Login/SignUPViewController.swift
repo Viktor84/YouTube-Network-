@@ -7,41 +7,50 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SignUPViewController: UIViewController {
     
-    
-    @IBOutlet weak var userName: UITextField!
+ 
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var email: UITextField!
     
- /*
     @IBAction func signUpAction(_ sender: Any) {
-       // if userName.text != userName
-        //if password.text != password. {
-        guard let userName = userName.text,
-        let password = password.text else {
-            let alertController = UIAlertController(title: "Password Incorrect", message: "Please re-type password", preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alertController.addAction(defaultAction)
-            self.present(alertController, animated: true, completion: nil)
-            return
-        }
-        Auth.auth().createUser(withEmail: email.text!, password: password.text!){ (user, error) in
-        if error == nil {
-            self.performSegue(withIdentifier: "signupToHome", sender: self)
-        }
-        else{
-            let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            
-            alertController.addAction(defaultAction)
-            self.present(alertController, animated: true, completion: nil)
-        }
+        let testFunc = UserService()
+        if let email = email.text,
+            let password = password.text {
+            testFunc.testRegister(email: email, password: password, completion: { [weak self] result in
+                guard result else {
+                    return
+                }
+        
+            RepositoryManager.shared.storage.userLogin = email
+                
+                DispatchQueue.main.async { [weak self] in
+                    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                   if let secondViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
+                    print("navigation:", self?.navigationController ?? "none");
+                    self?.navigationController?.pushViewController(secondViewController, animated: false)
+                }
+            }
+        })
     }
-
+}
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+}
 
-    } */
+
+extension UITextField{
+    @IBInspectable var placeHolderColor: UIColor? {
+        get {
+            return self.placeHolderColor
+        }
+        set {
+            self.attributedPlaceholder = NSAttributedString(string:self.placeholder != nil ? self.placeholder! : "", attributes:[NSAttributedStringKey.foregroundColor: newValue!])
+        }
+    }
 }

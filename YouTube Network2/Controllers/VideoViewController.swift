@@ -17,7 +17,6 @@ class VideoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //youtubePlayer.load(withVideoId: "6q3VKX_b1v8")
         //youtubePlayer.load(withVideoId: videoGroup)
         self.title = "YouTubeVC"
     }

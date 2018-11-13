@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import FirebaseCore
+import FirebaseDatabase
+
 
 class HomeViewController: UIViewController {
     static let nibName = "VideoCollectionViewCell"
@@ -39,9 +41,6 @@ class HomeViewController: UIViewController {
         
         return [blankVideo, blankVideo1, blankVideo2, blankVideo3]
     }()
-
-    //@IBOutlet weak var label: UILabel!
-    //@IBOutlet weak var listView: UIView!
     
     fileprivate var items: [JSONItems] = [] {
         didSet {
@@ -53,19 +52,12 @@ class HomeViewController: UIViewController {
         let nib = UINib(nibName: HomeViewController.nibName, bundle: nil)
         
         self.collectionView.register(UINib(nibName: "VideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "VideoCellID")
-       // collectionView.register(nib, forCellReuseIdentifier: HomeViewController.cellIdentifier)
-       // collectionView.backgroundView = UIView(frame: .zero)
-     //   collectionView.tableFooterView = UIView(frame: .zero)
-      //  collectionView.separatorStyle = .none
-        
-       // collectionView.estimatedRowHeight = 65.0
-       // collectionView.rowHeight = UITableViewAutomaticDimension
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Database.database().reference()
+        FIRDatabase.database().reference()
         initNavigation()
         initCollectionView()
         //updateData()
@@ -113,11 +105,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if let itemCell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCellID", for: indexPath) as? VideoCollectionViewCell {
             
             itemCell.videoCollectionViewCell = itemVideoArray[indexPath.row]
-            
-//            let view = UIView(frame: itemCell.bounds)
-//            view.backgroundColor = UIColor.red
-//            itemCell.selectedBackgroundView = view
-            
             return itemCell
         }
         return UICollectionViewCell()
@@ -125,26 +112,23 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
-        let cellSize = CGSize(width: (collectionView.bounds.width - (3 * 10))/2, height: 120)
+        let cellSize = CGSize(width: (collectionView.bounds.width - (3 * 2))/3, height: 120)
         return cellSize
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
     {
-        return 10
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
     {
-        let sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
+        let sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
         return sectionInset
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let menu = itemVideoArray[indexPath.row]
-        
-       // menu.contentView.backgroundColor = UIColor.cyan 
-
         self.performSegue(withIdentifier: "showVideo", sender: menu)
     }
 }

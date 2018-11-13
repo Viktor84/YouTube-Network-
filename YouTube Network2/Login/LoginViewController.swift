@@ -7,24 +7,49 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var password: UITextField!
+    
+    @IBAction func siginInAction(_ sender: Any) {
+        let funcLogin = UserService() 
+            if let email = email.text,
+                let password = password.text {
+                       funcLogin.testLogin(email: email, password: password, completion: { [weak self] result in
+                        guard result else {
+                            return
+                        }
+                        
+                        DispatchQueue.main.async { [weak self] in
+                            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                            if let secondViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
+                                print(">>>>>navigationController:", self?.navigationController ?? "none"); self?.navigationController?.pushViewController(secondViewController, animated: false)
+                            }
+                        }
+                })
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func siginUPViewController(_ sender: UIButton) {
+        
     }
-    */
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print("navigationController:", navigationController)
+    }
+}
 
+extension UITextField{
+    @IBInspectable var placeHolderColorLogin: UIColor? {
+        get {
+            return self.placeHolderColorLogin
+        }
+        set {
+            self.attributedPlaceholder = NSAttributedString(string:self.placeholder != nil ? self.placeholder! : "", attributes:[NSAttributedStringKey.foregroundColor: newValue!])
+        }
+    }
 }

@@ -11,6 +11,7 @@ import UIKit
 
 class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    var videoId = "QJNsP1o1Fj8"
     var dataComments: [Comments] = {
         
         var blankComment = Comments()
@@ -24,15 +25,12 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         blankComment1.imageUser = UIImage(named: "image3")
         
         var blankComment2 = Comments()
-        blankComment2.name = "At any given time, you must read the best [for you] book in the world as you only know. However, as soon as you find another book that seems more interesting or more important, the current reference book should be done without hesitation."
+        blankComment2.name = "Jon"
         blankComment2.comments = "Contributes to the preparation and implementation of the system Contributes to the preparation and implementation of the system"
         blankComment2.imageUser = UIImage(named: "image1")
         
         return [blankComment, blankComment1, blankComment2]
     }()
-   
-        var videoId = "QJNsP1o1Fj8"
-    //var comments: [String] = ["Cool video 111", "Fan men111", "Like!1111"]
 
     @IBOutlet weak var imageView: UIImageView! {
         didSet {
@@ -43,18 +41,15 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var nameLabel: UILabel! {
         didSet {
-            nameLabel.text = menu?.name 
+            nameLabel.text = menu?.name
         }
     }
     
-    @IBOutlet weak var videoIdLabel: UILabel! {
+    @IBOutlet var youTubePlayer2Test: YTPlayerView!  {
         didSet {
-            videoIdLabel.text = menu?.videoGroup
             videoId = (menu?.videoGroup ?? nil) ?? "KNAQ3Y8PGkM"
         }
     }
-    
-    @IBOutlet var youTubePlayer2Test: YTPlayerView!
     
     var menu: Video?
     var displayVideoButton = UIButton() //
@@ -82,7 +77,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func setNavigatioBar() {
-        //navigationItem.largeTitleDisplayMode = .automatic
+        navigationItem.largeTitleDisplayMode = .automatic
     }
 
     override func didReceiveMemoryWarning() {
